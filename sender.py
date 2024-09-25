@@ -27,6 +27,13 @@ def load_proxies_from_file(proxy_file):
                         'username': parts[2] if parts[2] != '' else None,
                         'password': parts[3] if parts[3] != '' else None
                     })
+                elif len(parts) == 2:
+                    proxies.append({
+                        'host': parts[0],
+                        'port': int(parts[1]),
+                        'username': None,
+                        'password': None
+                    })
     return proxies
 
 def set_socks5_proxy(proxy_info):
