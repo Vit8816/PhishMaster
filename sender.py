@@ -94,4 +94,7 @@ if __name__ == "__main__":
     parser.add_argument('--fake_name', required=True, help='Name to show as sender')
     parser.add_argument('--proxy_file', required=False, help='Path to the file containing SOCKS5 proxies')
     args = parser.parse_args()
-    send_mass_email(args.email_list, args.html_template, args.subject, args.fake_email, args.fake_name)
+    if args.proxy_file:
+        send_mass_email(args.email_list, args.html_template, args.subject, args.fake_email, args.fake_name, args.proxy_file)
+    else:
+        send_mass_email(args.email_list, args.html_template, args.subject, args.fake_email, args.fake_name)
